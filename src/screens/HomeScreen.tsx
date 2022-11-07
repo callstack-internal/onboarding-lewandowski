@@ -27,7 +27,6 @@ export const HomeScreen = () => {
       });
       setWeatherData(normalizeWeatherData);
     } catch (error) {
-      console.log(error);
       Alert.alert("no weather, sorry mister");
     }
   };
@@ -36,18 +35,15 @@ export const HomeScreen = () => {
     getData();
   }, []);
 
-  const renderItem = ({ item }: { item: ComponentWeatherData }) => {
-    console.log({ id: item.icon });
-    return (
-      <ListItem
-        iconName={item.icon}
-        cityName={item.name}
-        description={item.description}
-        temperature={item.temp}
-        onPress={() => Alert.alert(item.name)}
-      />
-    );
-  };
+  const renderItem = ({ item }: { item: ComponentWeatherData }) => (
+    <ListItem
+      iconName={item.icon}
+      cityName={item.name}
+      description={item.description}
+      temperature={item.temp}
+      onPress={() => Alert.alert(item.name)}
+    />
+  );
 
   return (
     <View style={styles.container}>
