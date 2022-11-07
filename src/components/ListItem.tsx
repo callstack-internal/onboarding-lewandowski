@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { palette } from "../theme/palette";
-
 interface Props {
   iconName: string;
   cityName: string;
@@ -15,7 +14,8 @@ export const ListItem = (props: Props) => {
     <TouchableOpacity
       accessibilityRole="button"
       onPress={props.onPress}
-      style={styles.container}>
+      style={styles.container}
+    >
       <View style={styles.iconContainer} />
       <View style={styles.cityContainer}>
         <Text style={styles.cityName}>{props.cityName}</Text>
