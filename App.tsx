@@ -12,6 +12,7 @@ import React from "react";
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
 
 import { HomeScreen } from "./src/screens/HomeScreen";
+import { palette } from "./src/theme/palette";
 
 const App = () => {
   return (
@@ -29,6 +30,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: palette.backgroundColor,
   },
 });

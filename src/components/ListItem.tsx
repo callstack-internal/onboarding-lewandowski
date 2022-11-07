@@ -35,11 +35,13 @@ export const ListItem = (props: Props) => {
       </View>
       <View style={styles.infoContainer}>
         <View style={styles.label}>
-          <Text style={styles.temperature}>{props.temperature}</Text>
+          <Text style={styles.temperature}>{`${props.temperature.toFixed(
+            1
+          )} °C`}</Text>
         </View>
       </View>
       <View style={styles.chevronContainer}>
-        <Icon name="chevron-right" size={20} color="lightgrey" />
+        <Icon name="chevron-right" size={20} color={palette.light} />
       </View>
     </TouchableOpacity>
   );
