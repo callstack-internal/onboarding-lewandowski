@@ -8,3 +8,6 @@ export const CITIES_LIST = [
   3094802, // Cracow,
   3081368, // Wroclaw,
 ];
+
+export const API_KEY = "76fd2705b01f017c9397c938cec5f555";
+export const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/";

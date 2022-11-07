@@ -1,4 +1,9 @@
-export interface CurrentWeatherResponse {
+export interface ApiResponse<Data> {
+  status: number;
+  msg: string;
+  data?: Data;
+}
+export interface CurrentWeatherData {
   coord: {
     lon: number;
     lat: number;
@@ -40,3 +45,21 @@ export interface CurrentWeatherResponse {
   name: string;
   cod: number;
 }
+
+export interface ComponentWeatherData {
+  id: number;
+  name: string;
+  dataId: string;
+  description: string;
+  icon: string;
+  temp: number;
+  feels_like: number;
+  temp_min: number;
+  temp_max: number;
+  pressure: number;
+  humidity: number;
+}
+
+export type GetCurrentWeatherForGroup = Promise<
+  ApiResponse<{ cnt: number; list: CurrentWeatherData[] }>
+>;
