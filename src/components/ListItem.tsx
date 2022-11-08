@@ -9,7 +9,7 @@ interface Props {
   cityName: string;
   description: string;
   temperature: number;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 export const ListItem = (props: Props) => {
@@ -40,9 +40,11 @@ export const ListItem = (props: Props) => {
           )} °C`}</Text>
         </View>
       </View>
-      <View style={styles.chevronContainer}>
-        <Icon name="chevron-right" size={20} color={palette.light} />
-      </View>
+      {props.onPress && (
+        <View style={styles.chevronContainer}>
+          <Icon name="chevron-right" size={20} color={palette.light} />
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     height: 70,
     alignItems: "center",
+    paddingHorizontal: 10,
   },
   iconContainer: { flex: 0.3 },
   cityContainer: { flex: 0.8, justifyContent: "center", padding: 10 },
