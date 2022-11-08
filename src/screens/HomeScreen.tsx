@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Alert, FlatList, StyleSheet, View } from "react-native";
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  StyleSheet,
+  View,
+} from "react-native";
 import { ListItem } from "../components/ListItem";
 import { CITIES_LIST } from "../consts";
 import { Separator } from "../elements/Separator";
 import { getCurrentWeatherForGroup } from "../network/api";
 import { ComponentWeatherData } from "../network/types";
+import { normalizeWeatherData } from "../utils";
 
 export const HomeScreen = () => {
   const [weatherData, setWeatherData] = useState();
@@ -16,16 +23,11 @@ export const HomeScreen = () => {
         throw new Error();
       }
 
-      const normalizeWeatherData: any = [];
+      const normalizedWeatherData: any = [];
       res.data.list.forEach((item) => {
-        normalizeWeatherData.push({
-          name: item.name,
-          dataId: item.id,
-          ...item.weather[0],
-          ...item.main,
-        });
+        normalizedWeatherData.push(normalizeWeatherData(item));
       });
-      setWeatherData(normalizeWeatherData);
+      setWeatherData(normalizedWeatherData);
     } catch (error) {
       Alert.alert("no weather, sorry mister");
     }
@@ -47,13 +49,15 @@ export const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      {weatherData && (
+      {weatherData ? (
         <FlatList
           data={weatherData}
           renderItem={renderItem}
-          keyExtractor={(item) => item.dataId}
+          keyExtractor={(item) => item.dataId.toString()}
           ItemSeparatorComponent={() => <Separator />}
         />
+      ) : (
+        <ActivityIndicator size="large" />
       )}
     </View>
   );
@@ -62,5 +66,6 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
   },
 });

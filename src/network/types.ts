@@ -47,9 +47,9 @@ export interface CurrentWeatherData {
 }
 
 export interface ComponentWeatherData {
-  id: number;
+  id: string;
   name: string;
-  dataId: string;
+  dataId: number;
   description: string;
   icon: string;
   temp: number;
