@@ -7,4 +7,6 @@ export const normalizeWeatherData = (
   dataId: item.id,
   ...item.weather[0],
   ...item.main,
+  windSpeed: item.wind.speed,
+  cloudCoverage: item.clouds.all,
 });

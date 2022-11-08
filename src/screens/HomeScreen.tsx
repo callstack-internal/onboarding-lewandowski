@@ -1,3 +1,4 @@
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -6,14 +7,17 @@ import {
   StyleSheet,
   View,
 } from "react-native";
+
 import { ListItem } from "../components/ListItem";
 import { CITIES_LIST } from "../consts";
 import { Separator } from "../elements/Separator";
 import { getCurrentWeatherForGroup } from "../network/api";
-import { ComponentWeatherData } from "../network/types";
+import { ComponentWeatherData, RootStackParamList } from "../network/types";
 import { normalizeWeatherData } from "../utils";
 
-export const HomeScreen = () => {
+export const HomeScreen = (
+  props: NativeStackScreenProps<RootStackParamList, "Weather", undefined>
+) => {
   const [weatherData, setWeatherData] = useState();
 
   const getData = async () => {
@@ -43,7 +47,7 @@ export const HomeScreen = () => {
       cityName={item.name}
       description={item.description}
       temperature={item.temp}
-      onPress={() => Alert.alert(item.name)}
+      onPress={() => props.navigation.navigate("Details", { item })}
     />
   );
 

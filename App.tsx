@@ -8,19 +8,28 @@
  * @format
  */
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import { RootStackParamList } from "./src/network/types";
+import { DetailsScreen } from "./src/screens/DetailsScreen";
 
 import { HomeScreen } from "./src/screens/HomeScreen";
 import { palette } from "./src/theme/palette";
 
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <>
+      <NavigationContainer>
         <StatusBar barStyle="dark-content" />
-        <HomeScreen />
-      </>
+        <Stack.Navigator>
+          <Stack.Screen name="Weather" component={HomeScreen} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 };

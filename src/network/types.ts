@@ -58,8 +58,15 @@ export interface ComponentWeatherData {
   temp_max: number;
   pressure: number;
   humidity: number;
+  windSpeed: number;
+  cloudCoverage: number;
 }
 
 export type GetCurrentWeatherForGroup = Promise<
   ApiResponse<{ cnt: number; list: CurrentWeatherData[] }>
 >;
+
+export type RootStackParamList = {
+  Weather: undefined;
+  Details: { item: ComponentWeatherData };
+};
