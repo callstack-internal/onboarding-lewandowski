@@ -18,7 +18,7 @@ describe("HomeScreen", () => {
     await waitFor(() => {
       screen.debug({ message: "optional message2" });
 
-      expect(screen.queryAllByText("test")).toBeTruthy();
+      expect(screen.queryAllByText("xxx")).toBeTruthy();
     });
   });
 });
