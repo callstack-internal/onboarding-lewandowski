@@ -8,14 +8,12 @@ export interface CurrentWeatherData {
     lon: number;
     lat: number;
   };
-  weather: [
-    {
-      id: string;
-      description: string;
-      icon: string;
-    }
-  ];
-  base: string;
+  weather: {
+    id: string;
+    description: string;
+    icon: string;
+  }[];
+  base?: string;
   main: {
     temp: number;
     feels_like: number;
@@ -33,17 +31,17 @@ export interface CurrentWeatherData {
     all: number;
   };
   dt: number;
-  sys: {
+  sys?: {
     type: number;
     id: number;
     country: string;
     sunrise: number;
     sunset: number;
   };
-  timezone: number;
+  timezone?: number;
   id: number;
   name: string;
-  cod: number;
+  cod?: number;
 }
 
 export interface ComponentWeatherData {
