@@ -2,7 +2,7 @@ import { render } from "@testing-library/react-native";
 import React from "react";
 import { DetailsScreen } from "./DetailsScreen";
 
-const props = {
+const props: any = {
   navigation: {},
   route: {
     params: {

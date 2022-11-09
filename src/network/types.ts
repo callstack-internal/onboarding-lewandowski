@@ -32,11 +32,11 @@ export interface CurrentWeatherData {
   };
   dt: number;
   sys?: {
-    type: number;
-    id: number;
-    country: string;
-    sunrise: number;
-    sunset: number;
+    type?: number;
+    id?: number;
+    country?: string;
+    sunrise?: number;
+    sunset?: number;
   };
   timezone?: number;
   id: number;

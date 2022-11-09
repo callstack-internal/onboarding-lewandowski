@@ -5,7 +5,6 @@ import {
   Alert,
   FlatList,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
 
@@ -51,21 +50,18 @@ export const HomeScreen = (
       onPress={() => props.navigation.navigate("Details", { item })}
     />
   );
-  console.log("test", weatherData);
+
   return (
     <View style={styles.container}>
       {weatherData ? (
-        <>
-          <Text>testing</Text>
-          <FlatList
-            data={weatherData}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.dataId.toString()}
-            ItemSeparatorComponent={() => <Separator />}
-          />
-        </>
+        <FlatList
+          data={weatherData}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.dataId.toString()}
+          ItemSeparatorComponent={() => <Separator />}
+        />
       ) : (
-        <ActivityIndicator size="large" />
+        <ActivityIndicator testID="loader" size="large" />
       )}
     </View>
   );

@@ -3,7 +3,7 @@ import { client } from "./config";
 
 export const mock = new MockAdapter(client, { onNoMatch: "throwException" });
 
-const groupData = {
+export const groupData = {
   cnt: 2,
   list: [
     {
@@ -15,7 +15,7 @@ const groupData = {
         sunset: 1667920002,
       },
       weather: [
-        { id: 800, main: "Clear", description: "clear sky", icon: "01d" },
+        { id: "800", main: "Clear", description: "clear sky", icon: "01d" },
       ],
       main: {
         temp: 285.58,
@@ -41,7 +41,7 @@ const groupData = {
         sunset: 1667920509,
       },
       weather: [
-        { id: 800, main: "Clear", description: "clear sky", icon: "01d" },
+        { id: "800", main: "Clear", description: "clear sky", icon: "01d" },
       ],
       main: {
         temp: 288.11,
