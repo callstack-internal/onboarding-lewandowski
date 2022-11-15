@@ -39,7 +39,6 @@ describe("HomeScreen", () => {
       fireEvent.press(wroclawItem);
 
       const expectedCityData = normalizeWeatherData(groupData.list[1]);
-      console.log({ expectedCityData });
       expect(props.navigation.navigate).toHaveBeenCalledWith("Details", {
         item: expectedCityData,
       });

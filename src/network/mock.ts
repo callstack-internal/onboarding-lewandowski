@@ -66,16 +66,3 @@ export const getCurrentWeatherForGroupMock200 = () =>
 
 export const getCurrentWeatherForGroupMock400 = () =>
   mock.onGet("group").reply(400);
-
-// export const postLoginMock412 = () => mock.onPost("/auth/login").reply(412);
-// export const postLoginMock422 = () => mock.onPost("/auth/login").reply(422);
-// export const postSignUpMock200 = () =>
-//   mock.onPost("/auth/registration").reply(200);
-
-// export const fetchUserProfileApiMock200 = () =>
-//   mock.onGet("/user/profile").reply(200, userData);
-
-// export const fetchProvidersMock200 = () =>
-//   mock.onGet("/common/tenants").reply(200, tenantsData);
-// export const fetchProviderRegulationsMock200 = () =>
-//   mock.onGet("/common/tenant+policies").reply(200, providerRegulationsData);
