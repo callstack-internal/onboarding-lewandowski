@@ -61,7 +61,7 @@ export const HomeScreen = (
           ItemSeparatorComponent={() => <Separator />}
         />
       ) : (
-        <ActivityIndicator size="large" />
+        <ActivityIndicator testID="loader" size="large" />
       )}
     </View>
   );

@@ -18,6 +18,7 @@ export const ListItem = (props: Props) => {
       accessibilityRole="button"
       onPress={props.onPress}
       style={styles.container}
+      testID={`list-item-${props.cityName}`}
     >
       <View style={styles.iconContainer}>
         <FastImage
